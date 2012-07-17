@@ -109,7 +109,7 @@ ClickMineMatSymbol(xpos, ypos) {
 	Materials3 := "Iron"
 	Loop 3 {
 		MaterialString := Materials%A_Index%
-		ImageSearch, FoundX, FoundY, %ULx%, %ULy%, %BRx%, %BRy%, %A_WorkingDir%\%MaterialString%Mine10.bmp
+		ImageSearch, FoundX, FoundY, %ULx%, %ULy%, %BRx%, %BRy%, %A_WorkingDir%\images\%MaterialString%Mine10.bmp
 		If !ErrorLevel
 		{
 			Click %FoundX%, %FoundY%
@@ -185,7 +185,7 @@ Loop 3 {
 	If !WaitForColors(0x68C7E7, 350, 420, 10000)
 		Exit
 	MaterialString := Materials%A_Index%
-	ImageSearch, FoundX, FoundY, 380, 240, 650, 400, %A_WorkingDir%\%MaterialString%.bmp
+	ImageSearch, FoundX, FoundY, 380, 240, 650, 400, %A_WorkingDir%\images\%MaterialString%.bmp
 	If !ErrorLevel
 		;MsgBox The icon was found at %FoundX%x%FoundY%.
 		Click %FoundX%, %FoundY%
