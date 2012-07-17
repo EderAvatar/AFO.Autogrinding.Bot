@@ -40,9 +40,7 @@ Login(Account, Password) {
 	Send %Account%{Enter}%Password%{Enter}{Enter}
 	If !WaitForColors(0x152C36, 5, 30, 10000)										; Dark top left of the main screen
 		Exit
-	If WaitForColors(0x162D54, 630, 400, 2000)										; Wait for the level-up badge and press Esc if it appears
-		Send {Esc}
-	If !DetectedColorCenter := WaitForColors(0xA8E7F9 0x9FE1F6, 500, 400, 10000)
+		If !DetectedColorCenter := WaitForColors(0xA8E7F9 0x9FE1F6, 500, 400, 10000)
 		Exit
 	Else If DetectedColorCenter = 0xA8E7F9											; Personal Info Safety badge
 	{
@@ -59,6 +57,8 @@ Login(Account, Password) {
 		If !WaitForColors(0x346D87, 5, 30, 10000)									; Light top left of the main screen
 			Exit
 	}
+	If WaitForColors(0x162D54, 630, 400, 5000)										; Wait for the level-up badge and press Esc if it appears
+		Send {Esc}
 }
 
 Logout() {
@@ -71,7 +71,7 @@ ClickMine(xpos, ypos) {
 	dxpos := xpos + 100
 	If !WaitForColors(0x24AE84, 5, 30, 10000)
 		Exit
-	Sleep 1000
+	Sleep 500
 	Click %xpos%, %ypos%
 	If !WaitForColors(0x0E4635, 5, 30, 1000)										; Wait for dark in top left. On timeout try clicking the 10 button and return
 	{
@@ -88,9 +88,9 @@ ClickMine(xpos, ypos) {
 		Send {Esc}
 		If !WaitForColors(0x24AE84, 5, 30, 10000)
 			Exit
-		Sleep 1000
+		Sleep 500
 		Click %xpos%, %ypos%
-		Sleep 1000
+		Sleep 500
 		Click %dxpos%, %ypos%
 		WaitForColors(0x0E4635, 5, 30, 1000)										; Wait for the very short loading screen after successfully clicking the 10 button
 		If !WaitForColors(0x24AE84, 5, 30, 10000)
@@ -123,39 +123,6 @@ ClickMineMatSymbol(xpos, ypos) {
 			Exit
 	}
 	return False
-}
-
-ClickMineNew(xpos, ypos) {
-	dxpos := xpos + 100
-	If !WaitForColors(0x24AE84, 5, 30, 10000)
-		Exit
-	If !ClickMineMatSymbol(%xpos%, %ypos%)
-	{
-		Click %xpos%, %ypos%
-		Sleep 1000
-		Click %dxpos%, %ypos%
-		WaitForColors(0x0E4635, 5, 30, 1000)										; Wait for the very short loading screen after successfully clicking the 10 button
-		If !WaitForColors(0x24AE84, 5, 30, 10000)
-			Exit
-		return
-	}
-	Else If !WaitForColors(0x0E4635, 5, 30, 1000)									; Wait for dark in top left. On timeout try clicking the 10 button and return
-		Exit
-	Else If !DetectedColorCenter := WaitForColors(0x9FE1F5, 380, 300, 10000)		; Wait for the badge
-		Exit
-	Else If DetectedColorCenter = 0x9FE1F5
-	{
-		Send {Esc}
-		If !WaitForColors(0x24AE84, 5, 30, 10000)
-			Exit
-		ClickMineMatSymbol(%xpos%, %ypos%)
-		Sleep 1000
-		Click %dxpos%, %ypos%
-		WaitForColors(0x0E4635, 5, 30, 1000)										; Wait for the very short loading screen after successfully clicking the 10 button
-		If !WaitForColors(0x24AE84, 5, 30, 10000)
-			Exit
-		return
-	}
 }
 
 $F1::
@@ -252,22 +219,3 @@ Loop 3 {
 	}
 }
 return
-
-$F4::
-ClickMineNew(Mine2xPos, Mine2yPos)
-return
-
-/*
-; Read from the array:
-Loop 2
-{
-	LineNumber = %A_Index%
-	Loop 3
-	{
-		element := Credentials%LineNumber%_%A_Index%
-		MsgBox, 4, , Field %LineNumber%-%A_Index% is:`n%element%`n`nContinue?
-			IfMsgBox, No
-				return
-	}
-}
-*/
