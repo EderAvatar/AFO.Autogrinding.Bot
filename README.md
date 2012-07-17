@@ -2,7 +2,7 @@
 ## Xel.Ra's Guide to automatic grinding in AFO ##
 #################################################
 
-Steps you need to do once
+*Steps you need to do once*
 * Make sure you run Windows XP/Vista/7
 * Install BlueStacks App Player (You can download it here http://bluestacks.com)
 * Install AFO inside of BlueStacks App Player (I won't explain how. If you can't do it, you are unworthy of my software!)
@@ -11,7 +11,7 @@ Steps you need to do once
 <pre>"\<Account name\>","\<Password\>","\<Number of mines\>"</pre> Don't leave any of the example code in that file! Then rename the file from Credentials.csv.example to Credentials.csv.
 If you don't understand this step, I'll pray for someone's mercy on your soul. ;)
 
-Steps you need to do every time
+*Steps you need to do every time*
 * Load the Autogrinder.ahk script with AutoHotkey (Right click -> Open with -> AutoHotkey)
 * Go to your AFO main screen (The one where you can see the Logout-button and your Avatar on the left)
 * Press F1
@@ -21,8 +21,6 @@ Make sure you press F1 from the main window of AFO when logged in.
 
 Upon pressing the F1-button the script will log you out and then login with the supplied credentials. It will then go into the land screen and do its magic on the mines.
 
-DON'T OVERWRITE YOUR EXISTING "Credentials.csv"!!!!
-
 F2 reloads the script. You can also break execution by pressing F2.
 
-F3 isn't really complete. So don't use it.
+F3 isn't really complete. So don't use it. Lightning might strike you! :D
