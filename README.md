@@ -3,14 +3,12 @@
 #################################################
 
 * Make sure you run Windows XP/Vista/7
-
 * Install BlueStacks App Player (You can download it here http://bluestacks.com)
-* Install Avatar Fight Online inside of BlueStacks App Player
-
+* Install AFO inside of BlueStacks App Player
 * Install AutoHotkey (You can download it here http://www.autohotkey.com/)
 
 * Write all your account credentials into the included Credentials.csv file in this format (use Notepad or similar, NOT EXCEL!): 
-<pre>"<Account name>","<Password>","<Number of mines>"</pre>. Clean the file up. Remove examples.
+<pre>"\<Account name\>","<Password>","<Number of mines>"</pre>. Clean the file up. Remove examples.
 
 * Load the included .ahk-script with AutoHotkey
 * Go to your AFO main screen (where you can see the Logout-button)
