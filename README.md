@@ -27,6 +27,8 @@ F2 reloads the script. You can also break execution by pressing F2.
 
 F3 isn't really complete. So don't use it. Lightning might strike you! :D
 
+- - -
+
 **If you're looking for a guild or are tired of your old guild, join**
 <pre>
                     ___           ___           ___           ___           ___                         ___     
