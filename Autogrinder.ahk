@@ -92,7 +92,7 @@ ClickMine(xpos, ypos) {
 		Click %xpos%, %ypos%
 		Sleep 500
 		Click %dxpos%, %ypos%
-		WaitForColors(0x0E4635, 5, 30, 1000)										; Wait for the very short loading screen after successfully clicking the 10 button
+		WaitForColors(0x0E4635, 5, 30, 10000)										; Wait for the very short loading screen after successfully clicking the 10 button
 		If !WaitForColors(0x24AE84, 5, 30, 10000)
 			Exit
 		return
