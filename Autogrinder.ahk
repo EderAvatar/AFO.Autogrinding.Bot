@@ -51,14 +51,14 @@ Login(Account, Password) {
 	Else If DetectedColorCenter = 0x9FE1F6											; Daily Reward badge
 	{
 		Send {Esc}
+		If WaitForColors(0x162D54, 630, 400, 1000)									; Wait for the level-up badge and press Esc if it appears
+			Send {Esc}
 		If !WaitForColors(0xA8E7F9, 500, 400, 10000)								; Personal Info Safety badge
 			Exit
 		Send {Esc}
 		If !WaitForColors(0x346D87, 5, 30, 10000)									; Light top left of the main screen
 			Exit
 	}
-	If WaitForColors(0x162D54, 630, 400, 5000)										; Wait for the level-up badge and press Esc if it appears
-		Send {Esc}
 }
 
 Logout() {
