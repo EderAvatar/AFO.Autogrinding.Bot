@@ -56,8 +56,8 @@ Login(Account, Password) {
 			Send {Esc}
 			Sleep 1000
 		}
-		If !WaitForColors(0xA8E7F9, 500, 400, 10000)								; Personal Info Safety badge
-			Exit
+		If !WaitForColors(0xA8E7F9, 500, 400, 1000)									; Personal Info Safety badge
+			Send {Esc}
 		Send {Esc}
 		If !WaitForColors(0x346D87, 5, 30, 10000)									; Light top left of the main screen
 			Exit
