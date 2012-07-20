@@ -144,7 +144,7 @@ IfWinExist BlueStacks App Player for Windows (beta-1)
 }
 else
 {
-	Run "C:\Program Files (x86)\BlueStacks\HD-RunApp.exe" Android com.jiuzhangtech.arena com.jiuzhangtech.arena.SplashActivity
+	Run %A_ProgramFiles%\BlueStacks\HD-RunApp.exe Android com.jiuzhangtech.arena com.jiuzhangtech.arena.SplashActivity
 	WinWait BlueStacks App Player for Windows (beta-1)
 	WinActivate
 }
