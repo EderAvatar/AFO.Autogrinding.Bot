@@ -177,20 +177,23 @@ Materials3 := "Iron"
 Loop 3 {
 	If !WaitForColors(0x346D87, 5, 30, 10000)									; Light top left of the main screen
 		Exit
+	Sleep 100
 	Click 900, 250
 	If !WaitForColors(0x064589, 1010, 80, 10000)
 		Exit
+	Sleep 100
 	Click 350, 50
+	Sleep 100
 	Loop 5 {
 		Send {Down}
 	}
 	Send {Enter}
 	If !WaitForColors(0x68C7E7, 350, 420, 10000)
 		Exit
+	Sleep 100
 	MaterialString := Materials%A_Index%
 	ImageSearch, FoundX, FoundY, 380, 240, 650, 400, %A_WorkingDir%\images\%MaterialString%.bmp
 	If !ErrorLevel
-		;MsgBox The icon was found at %FoundX%x%FoundY%.
 		Click %FoundX%, %FoundY%
 	Else If ErrorLevel = 1
 	{
@@ -202,8 +205,9 @@ Loop 3 {
 		Exit
 	If !WaitForColors(0x001E6B, 645, 400, 1000)
 		Exit
-	Loop 50 {
+	Loop 20 {
 		Click 560, 340														; Clicking the plus sign
+		Sleep 100
 	}
 	Click 520, 410
 	If !DetectedColor := WaitForColors(0x001E6B 0x6FCFEA, 645, 400, 10000)
