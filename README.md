@@ -18,6 +18,8 @@ Steps you need to do every time
 * Go to your AFO main screen (The one where you can see the Logout-button and your Avatar on the left)
 * Press F1
 
+- - -
+
 The script only listens for a single key. Press F1 to run the script.
 Make sure you press F1 from the main window of AFO when logged in.
 
