@@ -206,9 +206,10 @@ Loop 3 {
 	If !WaitForColors(0x001E6B, 645, 400, 1000)
 		Exit
 	Loop 20 {
-		Click 560, 340														; Clicking the plus sign
 		Sleep 100
+		Click 560, 340														; Clicking the plus sign
 	}
+	Sleep 100
 	Click 520, 410
 	If !DetectedColor := WaitForColors(0x001E6B 0x6FCFEA, 645, 400, 10000)
 		Exit
