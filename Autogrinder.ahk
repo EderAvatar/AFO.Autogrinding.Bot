@@ -54,7 +54,7 @@ Login(Account, Password) {
 		If WaitForColors(0x162D54, 630, 400, 2000)									; Wait for the level-up badge and press Esc if it appears
 		{	
 			Send {Esc}
-			Sleep 1000
+			Sleep 2000
 		}
 		If !WaitForColors(0xA8E7F9, 500, 400, 1000)									; Personal Info Safety badge
 			Send {Esc}
