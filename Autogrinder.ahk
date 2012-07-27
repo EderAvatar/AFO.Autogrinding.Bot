@@ -87,7 +87,7 @@ EnrollContest() {
 	Else If Colour = 0x1255A6														; Not enrolled. Button detected.
 	{
 		Click 520, 440
-		If WaitForColors(0xA4E2F6, 520, 400, 10000)										; Enrolled badge
+		If WaitForColors(0xA4E2F6, 520, 400, 10000)									; Enrolled badge
 			Send {Esc}
 	}
 }
