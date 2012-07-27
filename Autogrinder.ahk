@@ -87,13 +87,12 @@ EnrollContest() {
 	Else If Colour = 0x1255A6														; Not enrolled. Button detected.
 	{
 		Click 520, 440
-		If WaitForColors(0xA4E2F6, 520, 400, 10000)									; Enrolled badge
-			Send {Esc}
 		If WaitForColors(0x162D54, 630, 400, 2000)									; Wait for the level-up badge and press Esc if it appears
 		{	
 			Send {Esc}
-			Sleep 2000
 		}
+		If WaitForColors(0xA4E2F6, 520, 400, 10000)									; Enrolled badge
+			Send {Esc}
 	}
 	Send {Esc}
 	Send {Esc}
