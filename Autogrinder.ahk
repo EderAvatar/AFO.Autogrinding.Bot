@@ -40,7 +40,7 @@ Login(Account, Password) {
 	Send %Account%{Enter}%Password%{Enter}{Enter}
 	If !WaitForColors(0x152C36, 5, 30, 10000)										; Dark top left of the main screen
 		Exit
-		If !DetectedColorCenter := WaitForColors(0xA8E7F9 0x9FE1F6, 500, 400, 10000)
+	If !DetectedColorCenter := WaitForColors(0xA8E7F9 0x9FE1F6, 500, 400, 10000)
 		Exit
 	Else If DetectedColorCenter = 0xA8E7F9											; Personal Info Safety badge
 	{
@@ -77,11 +77,19 @@ EnrollContest() {
 	If !WaitForColors(0xB5F3FE, 1020, 620, 10000)
 		Exit
 	Click 320, 70
-	Click 520, 440
-	If WaitForColors(0xA4E2F6, 520, 400, 10000)										; Enrolled badge
+	If !Colour := WaitForColors(0xB7DCDA 0x1255A6, 520, 440, 1000)
+		Exit
+	Else If Colour = 0xB7DCDA														; Already enrolled. No button.
+	{
 		Send {Esc}
-	Send {Esc}
-	Send {Esc}
+		Send {Esc}
+	}
+	Else If Colour = 0x1255A6														; Not enrolled. Button detected.
+	{
+		Click 520, 440
+		If WaitForColors(0xA4E2F6, 520, 400, 10000)										; Enrolled badge
+			Send {Esc}
+	}
 }
 
 ClickMine(xpos, ypos) {
