@@ -70,6 +70,20 @@ Logout() {
 	Sleep 100
 }
 
+EnrollContest() {
+	Click 80, 600
+	Click 370, 550
+	Click 250, 300
+	If !WaitForColors(0xB5F3FE, 1020, 620, 10000)
+		Exit
+	Click 320, 70
+	Click 520, 440
+	If WaitForColors(0xA4E2F6, 520, 400, 10000)										; Enrolled badge
+		Send {Esc}
+	Send {Esc}
+	Send {Esc}
+}
+
 ClickMine(xpos, ypos) {
 	dxpos := xpos + 100
 	If !WaitForColors(0x24AE84, 5, 30, 10000)
@@ -163,6 +177,7 @@ Loop %NumberOfMines%
 }
 Sleep 1000
 Send {Esc}
+EnrollContest()
 return
 
 $F2::
