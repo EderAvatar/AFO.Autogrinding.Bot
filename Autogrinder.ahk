@@ -74,10 +74,10 @@ EnrollContest() {
 	Click 80, 600
 	Click 370, 550
 	Click 250, 300
-	If !WaitForColors(0xB5F3FE, 1020, 620, 10000)
-		Exit
+	If !WaitForColors(0xB5F3FE, 1020, 620, 10000)									; Contest screen check.
+		MsgBox Something's gone wrong.
 	Click 320, 70
-	If !Colour := WaitForColors(0xB7DCDA 0x1255A6, 520, 440, 1000)
+	If !Colour := WaitForColors(0xB7DCDA 0x1255A6, 520, 440, 10000)
 		Exit
 	Else If Colour = 0x1255A6														; Not enrolled. Button detected.
 	{
@@ -87,6 +87,7 @@ EnrollContest() {
 			Send {Esc}
 		}
 	}
+	Sleep 100
 	Send {Esc}
 	Send {Esc}
 }
