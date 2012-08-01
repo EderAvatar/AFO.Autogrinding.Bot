@@ -65,6 +65,8 @@ Login(Account, Password) {
 }
 
 Logout() {
+	If !WaitForColors(0x346D87, 5, 30, 10000)									; Light top left of the main screen
+		Exit
 	Click 975, 135
 	Click 520, 400
 	Sleep 100
