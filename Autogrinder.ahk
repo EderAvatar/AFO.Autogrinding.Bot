@@ -208,6 +208,25 @@ Sleep 1000
 return
 
 $F3::
+IfWinExist BlueStacks App Player for Windows (beta-1)
+{
+	WinActivate
+	PixelGetColor, color, 10, 90
+	If color != 0xA4CFD2
+	{
+		Exit
+	}
+	Loop %Credentials_Donate_j%
+	{
+		Gosub, Donating
+	}
+}
+
+Donating:
+Logout()
+usr := Credentials_Donate%A_Index%_1
+pw := Credentials_Donate%A_Index%_2
+Login(usr, pw)
 Materials1 := "Stone"
 Materials2 := "Wood"
 Materials3 := "Iron"
