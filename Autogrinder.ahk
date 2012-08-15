@@ -282,4 +282,5 @@ Loop 3 {
 		Send {Esc}
 	}
 }
+Sleep 100
 return
