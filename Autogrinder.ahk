@@ -23,6 +23,16 @@ Loop, read, Credentials.csv
     }
 }
 
+Loop, read, Credentials.Donate.csv
+{
+    Credentials_Donate_j := A_Index
+    Loop, parse, A_LoopReadLine, CSV
+    {
+		Credentials_Donate_k := A_Index
+		Credentials_Donate%Credentials_Donate_j%_%Credentials_Donate_k% := A_LoopField
+    }
+}
+
 WaitForColors(ColorsToWaitFor, xpos, ypos, TimeOut) {								; Waits for a color at specified position. Exits the script if the timeout is reached.
     TimeOutStart := A_TickCount														; 	Separate the colors with space
     PixelGetColor, color, %xpos%, %ypos%
