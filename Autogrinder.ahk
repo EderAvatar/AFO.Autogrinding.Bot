@@ -294,7 +294,7 @@ IfWinExist BlueStacks App Player for Windows (beta-1)
 	{
 		Exit
 	}
-	;InputBox, Guild, Which guild?, Whcih guild shall your avatars to join?
+	;InputBox, Guild, Which guild?, Which guild shall your avatars to join?
 	Loop %Credentials_Donate_j%
 	{
 		Gosub, JoinGuild
