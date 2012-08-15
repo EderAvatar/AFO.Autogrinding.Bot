@@ -1,4 +1,4 @@
-SetWorkingDir %A_ScriptDir%
+﻿SetWorkingDir %A_ScriptDir%
 
 Mine1xPos := 170
 Mine1yPos := 175
@@ -282,5 +282,40 @@ Loop 3 {
 		Send {Esc}
 	}
 }
+Sleep 100
+return
+
+$F4::
+IfWinExist BlueStacks App Player for Windows (beta-1)
+{
+	WinActivate
+	PixelGetColor, color, 10, 90
+	If color != 0xA4CFD2
+	{
+		Exit
+	}
+	;InputBox, Guild, Which guild?, Whcih guild shall your avatars to join?
+	Loop %Credentials_Donate_j%
+	{
+		Gosub, JoinGuild
+	}
+}
+
+JoinGuild:
+Logout()
+usr := Credentials_Donate%A_Index%_1
+pw := Credentials_Donate%A_Index%_2
+Login(usr, pw)
+;Transform, ClipUTF, Unicode
+;Clipboard = Transform, Clipboard, Unicode, %ClipUTF%
+;MsgBox The clipboard now contains the following line that you can paste into your script. When executed, this line will cause the original Unicode string you copied to be placed onto the clipboard:`n`n%Clipboard%
+;Transform, Clipboard, Unicode, %ClipUTF%
+;MsgBox %Guild%
+;Click 900, 250
+;If WaitForColors(0xA9EAFC, 500, 400, 500)
+;	SendEvent •♥ Silenced girls ♥•
+MsgBox Join your guild and press OK to go to the next avatar.
+IfWinExist BlueStacks App Player for Windows (beta-1)
+	WinActivate
 Sleep 100
 return
